@@ -35,5 +35,6 @@ public final class ShareTradingContants {
 	public static final BigDecimal LTCG_EXEMPTION = new BigDecimal("125000");
 	public static final String SHARE_TARDING = "share-trading";
 	public static final String BUYING_DETAILS = "buying-details";
+	public static final String SELLING_DETAILS = "selling-details";
 
 }

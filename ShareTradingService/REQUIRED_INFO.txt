@@ -1,0 +1,29 @@
+GET:
+http://localhost:8001/weight-management/messages
+http://localhost:8001/weight-management/greetings
+
+____________________________________________________________________________
+
+POST:
+http://localhost:8001/weight-management/details
+
+JSON BODY:
+{
+    "name": "John",
+    "caloriesLossPerDay": 515,
+    "currentWeightInKg": 116.56,
+    "desiredWeightInKg": 80
+}
+____________________________________________________________________________
+
+Actuator GET URL:
+http://localhost:8001/actuator/health
+____________________________________________________________________________
+
+Swagger Document GET URL:
+http://localhost:8001/swagger-ui.html
+____________________________________________________________________________
+
+HAL Explorer GET URL (To explore more about GET APIs):
+http://localhost:8001/explorer/index.html
+____________________________________________________________________________

@@ -10,7 +10,16 @@ RAW JSON BODY:
 
 ______________________________________________________________________________________________________
 
-GET:
+POST:
 
-http://localhost:6100/share-trading/selling-details?quantity=348&averageCost=1089.41&lastTradePrice=1234.20&investedAmount=379115.40&holdingDurationInMonths=3
-_____________________________________________________________________________________
+http://localhost:6100/share-trading/selling-details
+
+RAW JSON BODY:
+{
+    "quantity": 348,
+    "averageCost": 1089.41,
+    "lastTradePrice": 1234.20,
+    "investedAmount": 379115.40,
+    "holdingDurationInMonths": 3
+}
+______________________________________________________________________________________________________

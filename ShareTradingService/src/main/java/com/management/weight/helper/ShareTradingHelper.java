@@ -19,7 +19,7 @@ public class ShareTradingHelper {
 		BigDecimal gst = ShareTradingUtils.getGst(exchangeAndSebiCharges);
 
 		BigDecimal chargesIncludingGstOnBuying = stt.add(stampDuty).add(exchangeAndSebiCharges).add(gst);
-		LOG.info("Charges including GST on buying: " + chargesIncludingGstOnBuying);
+		LOG.info(ShareTradingContants.MSG_CHARGES_ON_BUYING + chargesIncludingGstOnBuying);
 		return ShareTradingUtils.setScale(chargesIncludingGstOnBuying);
 	}
 
@@ -30,22 +30,22 @@ public class ShareTradingHelper {
 		BigDecimal gst = ShareTradingUtils.getGst(exchangeAndSebiCharges);
 
 		BigDecimal chargesIncludingGstOnSelling = stt.add(exchangeAndSebiCharges).add(gst);
-		LOG.info("Charges including GST on selling: " + chargesIncludingGstOnSelling);
+		LOG.info(ShareTradingContants.MSG_CHARGES_ON_SELLING + chargesIncludingGstOnSelling);
 		return ShareTradingUtils.setScale(chargesIncludingGstOnSelling);
 	}
 
 	/** If holding Duration < 12 Months then Tax = 20% (STCG) */
 	public static BigDecimal calculateTax(BigDecimal profit, int holdingDurationInMonths) {
-		LOG.info("Holding duration = " + holdingDurationInMonths + " month(s)");
-		if (profit.compareTo(BigDecimal.ZERO) <= 0) {
+		LOG.info(ShareTradingContants.HOLDING_DURATION_COLON + holdingDurationInMonths + ShareTradingContants.SPACE_MONTH);
+		if (profit.compareTo(BigDecimal.ZERO) <= ShareTradingContants.ZERO) {
 			return BigDecimal.ZERO;
 		}
 
-		if (holdingDurationInMonths < 12) {
+		if (holdingDurationInMonths < ShareTradingContants.TWELVE) {
 			return ShareTradingUtils.getPercentOfAmount(profit, ShareTradingContants.STCG_PERCENT);
 		} else {
 			profit = profit.subtract(ShareTradingContants.LTCG_EXEMPTION);
-			if (profit.compareTo(BigDecimal.ZERO) <= 0) {
+			if (profit.compareTo(BigDecimal.ZERO) <= ShareTradingContants.ZERO) {
 				return BigDecimal.ZERO;
 			}
 			return ShareTradingUtils.getPercentOfAmount(profit, ShareTradingContants.LTCG_PERCENT);

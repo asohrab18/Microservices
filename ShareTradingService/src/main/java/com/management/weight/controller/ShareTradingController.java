@@ -6,6 +6,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,15 +23,17 @@ import com.management.weight.utils.ShareTradingUtils;
 @RequestMapping(ShareTradingContants.SHARE_TARDING)
 public class ShareTradingController {
 
-	@GetMapping(ShareTradingContants.BUYING_DETAILS)
-	public ResponseEntity<BuyingShare> getBuyingDetails(@RequestParam BigDecimal oneSharePrice, @RequestParam BigDecimal quantity)
-			throws Exception {
+	@PostMapping(ShareTradingContants.BUYING_DETAILS)
+	public ResponseEntity<BuyingShare> getBuyingDetails(@RequestBody BuyingShare buyingShare) throws Exception {
 
+		BigDecimal oneSharePrice = buyingShare.getOneSharePrice();
+		BigDecimal quantity = buyingShare.getQuantity();
 		BigDecimal totalSharesPrice = ShareTradingUtils.multiply(oneSharePrice, quantity);
 
 		BigDecimal chargesIncludingGstOnBuying = ShareTradingHelper.getChargesIncludingGstOnBuying(totalSharesPrice);
 
-		BigDecimal totalCostIncludingChargesAndGstOnBuying = ShareTradingUtils.add(totalSharesPrice, chargesIncludingGstOnBuying);
+		BigDecimal totalCostIncludingChargesAndGstOnBuying = ShareTradingUtils.add(totalSharesPrice,
+				chargesIncludingGstOnBuying);
 
 		BuyingShare share = new BuyingShare();
 		share.setOneSharePrice(oneSharePrice);
@@ -43,8 +47,8 @@ public class ShareTradingController {
 
 	@GetMapping(ShareTradingContants.SELLING_DETAILS)
 	public ResponseEntity<SellingShare> getSellingDetails(@RequestParam BigDecimal lastTradePrice,
-			@RequestParam BigDecimal quantity, @RequestParam BigDecimal averageCost, @RequestParam BigDecimal investedAmount,
-			@RequestParam int holdingDurationInMonths) throws Exception {
+			@RequestParam BigDecimal quantity, @RequestParam BigDecimal averageCost,
+			@RequestParam BigDecimal investedAmount, @RequestParam int holdingDurationInMonths) throws Exception {
 
 		BigDecimal totalSharesPrice = ShareTradingUtils.multiply(lastTradePrice, quantity);
 

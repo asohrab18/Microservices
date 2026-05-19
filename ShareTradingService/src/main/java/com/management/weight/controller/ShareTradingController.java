@@ -22,22 +22,19 @@ import com.management.weight.utils.ShareTradingUtils;
 public class ShareTradingController {
 
 	@GetMapping(ShareTradingContants.BUYING_DETAILS)
-	public ResponseEntity<BuyingShare> getBuyingDetails(@RequestParam String price, @RequestParam String quantity)
+	public ResponseEntity<BuyingShare> getBuyingDetails(@RequestParam BigDecimal oneSharePrice, @RequestParam BigDecimal quantity)
 			throws Exception {
 
-		BigDecimal oneSharePrice = ShareTradingUtils.getBigDecimal(price);
-		BigDecimal qty = ShareTradingUtils.getBigDecimal(quantity);
-		BigDecimal totalPrice = ShareTradingUtils.multiply(oneSharePrice, qty);
+		BigDecimal totalSharesPrice = ShareTradingUtils.multiply(oneSharePrice, quantity);
 
-		BigDecimal chargesIncludingGstOnBuying = ShareTradingHelper.getChargesIncludingGstOnBuying(totalPrice);
+		BigDecimal chargesIncludingGstOnBuying = ShareTradingHelper.getChargesIncludingGstOnBuying(totalSharesPrice);
 
-		BigDecimal totalCostIncludingChargesAndGstOnBuying = ShareTradingUtils.add(totalPrice,
-				chargesIncludingGstOnBuying);
+		BigDecimal totalCostIncludingChargesAndGstOnBuying = ShareTradingUtils.add(totalSharesPrice, chargesIncludingGstOnBuying);
 
 		BuyingShare share = new BuyingShare();
 		share.setOneSharePrice(oneSharePrice);
-		share.setQuantity(qty);
-		share.setTotalPrice(totalPrice);
+		share.setQuantity(quantity);
+		share.setTotalSharesPrice(totalSharesPrice);
 		share.setChargesIncludingGstOnBuying(chargesIncludingGstOnBuying);
 		share.setTotalCostIncludingChargesAndGstOnBuying(totalCostIncludingChargesAndGstOnBuying);
 

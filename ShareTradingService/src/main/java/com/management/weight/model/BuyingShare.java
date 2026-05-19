@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class BuyingShare {
 	private BigDecimal oneSharePrice;
 	private BigDecimal quantity;
-	private BigDecimal totalPrice;
+	private BigDecimal totalSharesPrice;
 	private BigDecimal chargesIncludingGstOnBuying;
 	private BigDecimal totalCostIncludingChargesAndGstOnBuying;
 
@@ -25,12 +25,12 @@ public class BuyingShare {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getTotalPrice() {
-		return totalPrice;
+	public BigDecimal getTotalSharesPrice() {
+		return totalSharesPrice;
 	}
 
-	public void setTotalPrice(BigDecimal totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setTotalSharesPrice(BigDecimal totalSharesPrice) {
+		this.totalSharesPrice = totalSharesPrice;
 	}
 
 	public BigDecimal getChargesIncludingGstOnBuying() {

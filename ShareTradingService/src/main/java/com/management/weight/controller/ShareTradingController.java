@@ -42,19 +42,16 @@ public class ShareTradingController {
 	}
 
 	@GetMapping(ShareTradingContants.SELLING_DETAILS)
-	public ResponseEntity<SellingShare> getSellingDetails(@RequestParam String lastTradePrice,
-			@RequestParam String quantity, @RequestParam String avgCost, @RequestParam String invested,
+	public ResponseEntity<SellingShare> getSellingDetails(@RequestParam BigDecimal lastTradePrice,
+			@RequestParam BigDecimal quantity, @RequestParam BigDecimal averageCost, @RequestParam BigDecimal investedAmount,
 			@RequestParam int holdingDurationInMonths) throws Exception {
 
-		BigDecimal ltp = ShareTradingUtils.getBigDecimal(lastTradePrice);
-		BigDecimal qty = ShareTradingUtils.getBigDecimal(quantity);
-		BigDecimal totalPrice = ShareTradingUtils.multiply(ltp, qty);
+		BigDecimal totalSharesPrice = ShareTradingUtils.multiply(lastTradePrice, quantity);
 
-		BigDecimal chargesIncludingGstOnSelling = ShareTradingHelper.getChargesIncludingGstOnSelling(totalPrice);
+		BigDecimal chargesIncludingGstOnSelling = ShareTradingHelper.getChargesIncludingGstOnSelling(totalSharesPrice);
 
-		BigDecimal actualSellingPrice = ShareTradingUtils.subtract(totalPrice, chargesIncludingGstOnSelling);
-		BigDecimal averageCost = ShareTradingUtils.getBigDecimal(avgCost);
-		BigDecimal investedAmount = ShareTradingUtils.getBigDecimal(invested);
+		BigDecimal actualSellingPrice = ShareTradingUtils.subtract(totalSharesPrice, chargesIncludingGstOnSelling);
+
 		BigDecimal profitOrLoss = ShareTradingUtils.subtract(actualSellingPrice, investedAmount);
 
 		BigDecimal tax = ShareTradingHelper.calculateTax(profitOrLoss, holdingDurationInMonths);
@@ -62,13 +59,13 @@ public class ShareTradingController {
 		BigDecimal actualProfit = ShareTradingUtils.subtract(profitOrLoss, tax);
 
 		SellingShare share = new SellingShare();
-		share.setLastTradePrice(ltp);
-		share.setQuantity(qty);
-		share.setAvgCost(averageCost);
+		share.setLastTradePrice(lastTradePrice);
+		share.setQuantity(quantity);
+		share.setAverageCost(averageCost);
 		share.setInvestedAmount(investedAmount);
 		share.setHoldingDurationInMonths(holdingDurationInMonths);
 		share.setChargesIncludingGstOnSelling(chargesIncludingGstOnSelling);
-		share.setTotalPrice(totalPrice);
+		share.setTotalSharesPrice(totalSharesPrice);
 		share.setActualSellingPrice(actualSellingPrice);
 		share.setProfitOrLoss(profitOrLoss);
 		share.setTax(tax);

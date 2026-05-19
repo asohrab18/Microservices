@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 public class SellingShare {
 	private BigDecimal lastTradePrice;
 	private BigDecimal quantity;
-	private BigDecimal totalPrice;
+	private BigDecimal totalSharesPrice;
 	private BigDecimal chargesIncludingGstOnSelling;
 	private BigDecimal actualSellingPrice;
-	private BigDecimal avgCost;
+	private BigDecimal averageCost;
 	private BigDecimal investedAmount;
 	private BigDecimal profitOrLoss;
 	private int holdingDurationInMonths;
@@ -31,12 +31,12 @@ public class SellingShare {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getTotalPrice() {
-		return totalPrice;
+	public BigDecimal getTotalSharesPrice() {
+		return totalSharesPrice;
 	}
 
-	public void setTotalPrice(BigDecimal totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setTotalSharesPrice(BigDecimal totalSharesPrice) {
+		this.totalSharesPrice = totalSharesPrice;
 	}
 
 	public BigDecimal getChargesIncludingGstOnSelling() {
@@ -55,12 +55,12 @@ public class SellingShare {
 		this.actualSellingPrice = actualSellingPrice;
 	}
 
-	public BigDecimal getAvgCost() {
-		return avgCost;
+	public BigDecimal getAverageCost() {
+		return averageCost;
 	}
 
-	public void setAvgCost(BigDecimal avgCost) {
-		this.avgCost = avgCost;
+	public void setAverageCost(BigDecimal averageCost) {
+		this.averageCost = averageCost;
 	}
 
 	public BigDecimal getInvestedAmount() {
@@ -79,6 +79,14 @@ public class SellingShare {
 		this.profitOrLoss = profitOrLoss;
 	}
 
+	public int getHoldingDurationInMonths() {
+		return holdingDurationInMonths;
+	}
+
+	public void setHoldingDurationInMonths(int holdingDurationInMonths) {
+		this.holdingDurationInMonths = holdingDurationInMonths;
+	}
+
 	public BigDecimal getTax() {
 		return tax;
 	}
@@ -95,11 +103,4 @@ public class SellingShare {
 		this.actualProfit = actualProfit;
 	}
 
-	public int getHoldingDurationInMonths() {
-		return holdingDurationInMonths;
-	}
-
-	public void setHoldingDurationInMonths(int holdingDurationInMonths) {
-		this.holdingDurationInMonths = holdingDurationInMonths;
-	}
 }

@@ -1,0 +1,82 @@
+function submitSellingStocksForm(event) {
+  event.preventDefault();
+
+  const lastTradePrice = parseFloat($('#lastTradePrice').val());
+  const quantity = parseFloat($('#quantity').val());
+  const averageCost = parseFloat($('#averageCost').val());
+  const investedAmount = parseFloat($('#investedAmount').val());
+  const holdingDurationInMonths = parseInt($('#holdingDurationInMonths').val());
+
+  // Client-side validations
+  if (isNaN(lastTradePrice) || isNaN(quantity) || isNaN(averageCost) || isNaN(investedAmount)) {
+    alert("⚠️ Please fill all fields correctly.");
+    return;
+  }
+
+  if (lastTradePrice <= 0) {
+    alert("Last Trade Price must be positive number.");
+    return;
+  }
+
+  if (quantity <= 0) {
+    alert("Quantity must be a positive number.");
+    return;
+  }
+  
+  if (averageCost <= 0) {
+      alert("Average Cost must be a positive number.");
+      return;
+    }
+	
+  if (investedAmount <= 0) {
+	  alert("Invested Amount must be a positive number.");
+	  return;
+  }
+
+  const data = {
+    lastTradePrice,
+    quantity,
+	averageCost,
+	investedAmount,
+	holdingDurationInMonths
+  };
+
+  $('#resultContainer').html('<div class="text-center mt-3"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>');
+
+//API Gateway Based URL: 
+  $.ajax({
+    url: 'http://localhost:8765/share-trading-service/share-trading/selling-details',
+    method: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(data),
+    success: function (response) {
+      displayResult(response);
+    },
+    error: function () {
+      $('#resultContainer').html('<div class="alert alert-danger">❌ Failed to calculate plan. Try again later.</div>');
+    }
+  });
+}
+
+
+function displayResult(data) {
+  const html = `
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <p><strong>Last Trade Price:</strong> ${data.lastTradePrice}</p>
+        <p><strong>Quantity:</strong> ${data.quantity}</p>
+        <p><strong>Total Shares Price:</strong> ${data.totalSharesPrice}</p>
+        <p><strong>Charges including GST on selling:</strong> ${data.chargesIncludingGstOnSelling}</p>
+		<p><strong>Average Cost:</strong> ${data.averageCost}</p>
+		<p><strong>Invested Amount:</strong> ${data.investedAmount}</p>
+		<p><strong>Profit or Loss:</strong> ${data.profitOrLoss}</p>
+		<p><strong>Holding Duration In Months:</strong> ${data.holdingDurationInMonths}</p>
+		<p><strong>Tax:</strong> ${data.tax}</p>
+        <hr />
+        <p><strong>Actual Profit or Loss:</strong> ${data.actualProfit}</p>
+      </div>
+    </div>
+  `;
+
+  $('#resultContainer').html(html);
+}

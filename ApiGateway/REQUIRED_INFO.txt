@@ -63,4 +63,11 @@ http://localhost:8765/consumer-service/consumers/products/id/1
 http://localhost:8765/consumer-service/consumers/candidates
 
 http://localhost:8765/consumer-service/consumers/candidates/id/1
-____________________________________________________________________________
+_____________________________________________________________________________________
+
+GET:
+
+http://localhost:8765/share-trading-service/share-trading/buying-details?price=1432.10&quantity=10
+
+http://localhost:8765/share-trading-service/share-trading/selling-details?quantity=348&avgCost=1089.41&lastTradePrice=1234.20&invested=379115.40&holdingDurationInMonths=3
+_____________________________________________________________________________________

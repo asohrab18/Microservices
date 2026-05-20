@@ -4,11 +4,10 @@ function submitSellingStocksForm(event) {
   const lastTradePrice = parseFloat($('#lastTradePrice').val());
   const quantity = parseFloat($('#quantity').val());
   const averageCost = parseFloat($('#averageCost').val());
-  const investedAmount = parseFloat($('#investedAmount').val());
   const holdingDurationInMonths = parseInt($('#holdingDurationInMonths').val());
 
   // Client-side validations
-  if (isNaN(lastTradePrice) || isNaN(quantity) || isNaN(averageCost) || isNaN(investedAmount)) {
+  if (isNaN(lastTradePrice) || isNaN(quantity) || isNaN(averageCost)) {
     alert("⚠️ Please fill all fields correctly.");
     return;
   }
@@ -26,18 +25,12 @@ function submitSellingStocksForm(event) {
   if (averageCost <= 0) {
       alert("Average Cost must be a positive number.");
       return;
-    }
-	
-  if (investedAmount <= 0) {
-	  alert("Invested Amount must be a positive number.");
-	  return;
   }
 
   const data = {
     lastTradePrice,
     quantity,
 	averageCost,
-	investedAmount,
 	holdingDurationInMonths
   };
 
@@ -63,17 +56,17 @@ function displayResult(data) {
   const html = `
     <div class="card shadow-sm">
       <div class="card-body">
-        <p><strong>Last Trade Price:</strong> ${data.lastTradePrice}</p>
-        <p><strong>Quantity:</strong> ${data.quantity}</p>
-        <p><strong>Total Shares Price:</strong> ${data.totalSharesPrice}</p>
+        <p><strong>Quantity (Qty):</strong> ${data.quantity}</p>
+		<p><strong>Average Cost (Avg. cost):</strong> ${data.averageCost}</p>
+		<p><strong>Invested Amount = (Avg. cost * Qty):</strong> ${data.investedAmount}</p>
+		<p><strong>Last Trade Price (LTP):</strong> ${data.lastTradePrice}</p>
+        <p><strong>Current Value of all Shares (Cur. val) = (LTP * Qty):</strong> ${data.totalSharesPrice}</p>
         <p><strong>Charges including GST on selling:</strong> ${data.chargesIncludingGstOnSelling}</p>
-		<p><strong>Average Cost:</strong> ${data.averageCost}</p>
-		<p><strong>Invested Amount:</strong> ${data.investedAmount}</p>
-		<p><strong>Profit or Loss:</strong> ${data.profitOrLoss}</p>
+		<p><strong>Profit or Loss = (Cur. val - Invested Amount - Charges) :</strong> ${data.profitOrLoss}</p>
 		<p><strong>Holding Duration In Months:</strong> ${data.holdingDurationInMonths}</p>
 		<p><strong>Tax:</strong> ${data.tax}</p>
         <hr />
-        <p><strong>Actual Profit or Loss:</strong> ${data.actualProfit}</p>
+        <p><strong>Actual Profit or Loss = (Profit or Loss - Tax):</strong> ${data.actualProfit}</p>
       </div>
     </div>
   `;

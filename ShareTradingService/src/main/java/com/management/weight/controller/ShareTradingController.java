@@ -52,7 +52,7 @@ public class ShareTradingController {
 
 		BigDecimal averageCost = sellingShare.getAverageCost();
 
-		BigDecimal investedAmount = sellingShare.getInvestedAmount();
+		BigDecimal investedAmount = ShareTradingUtils.multiply(averageCost, quantity);
 
 		int holdingDurationInMonths = sellingShare.getHoldingDurationInMonths();
 

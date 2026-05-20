@@ -47,12 +47,12 @@ function displayResult(data) {
   const html = `
     <div class="card shadow-sm">
       <div class="card-body">
-        <p><strong>One Share Price:</strong> ${data.oneSharePrice}</p>
-        <p><strong>Quantity:</strong> ${data.quantity}</p>
-        <p><strong>Total Shares Price:</strong> ${data.totalSharesPrice}</p>
+	  	<p><strong>Quantity:</strong> ${data.quantity}</p>
+        <p><strong>Last Trade Price (LTP) of a share:</strong> ${data.oneSharePrice}</p>
+        <p><strong>Price of all shares = (LTP * Qty):</strong> ${data.totalSharesPrice}</p>
         <p><strong>Charges including GST on buying:</strong> ${data.chargesIncludingGstOnBuying}</p>
         <hr />
-        <p><strong>Total Cost including charges and GST on buying:</strong> ${data.totalCostIncludingChargesAndGstOnBuying}</p>
+        <p><strong>Total Cost on buying = (Price of all shares + Charges including GST):</strong> ${data.totalCostIncludingChargesAndGstOnBuying}</p>
       </div>
     </div>
   `;

@@ -20,10 +20,10 @@
       <form id="buyingStocksForm" onsubmit="submitBuyingStocksForm(event)">
         <div class="row g-3">
           <div class="col-md-3">
-            <input type="number" id="oneSharePrice" class="form-control" placeholder="One Share Price" step="0.1" required />
+            <input type="number" id="quantity" class="form-control" placeholder="Quantity" step="0.01" min="0.01" required />
           </div>
           <div class="col-md-3">
-            <input type="number" id="quantity" class="form-control" placeholder="Quantity" step="0.1" required />
+            <input type="number" id="oneSharePrice" class="form-control" placeholder="Last Trade Price (LTP) of a share" step="0.01" min="0.01" required />
           </div>
         </div>
         <div class="mt-4">

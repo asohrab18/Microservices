@@ -14,29 +14,26 @@
       <a href="/index.html" class="btn btn-outline-secondary">⬅️ Home</a>
     </div>
     <div class="bg-white p-4 rounded shadow">
-      <h2 class="mb-4 text-primary">Selling Stocks Profit Estimation</h2>
+      <h2 class="mb-4 text-primary">Selling Stocks Profit/Loss Estimation</h2>
 
       <!-- Form -->
       <form id="sellingStocksForm" onsubmit="submitSellingStocksForm(event)">
         <div class="row g-3">
           <div class="col-md-3">
-            <input type="number" id="lastTradePrice" class="form-control" placeholder="Last Trade Price" step="0.1" required />
+            <input type="number" id="quantity" class="form-control" placeholder="Quantity" step="0.01" min="0.01" required />
           </div>
           <div class="col-md-3">
-            <input type="number" id="quantity" class="form-control" placeholder="Quantity" step="0.1" required />
+            <input type="number" id="averageCost" class="form-control" placeholder="Average Cost" step="0.01" min="0.01" required />
           </div>
           <div class="col-md-3">
-            <input type="number" id="averageCost" class="form-control" placeholder="Average Cost" step="0.1" required />
+            <input type="number" id="lastTradePrice" class="form-control" placeholder="Last Trade Price" step="0.01" min="0.01" required />
           </div>
           <div class="col-md-3">
-            <input type="number" id="investedAmount" class="form-control" placeholder="Invested Amount" step="0.1" required />
-          </div>
-          <div class="col-md-3">
-            <input type="number" id="holdingDurationInMonths" class="form-control" placeholder="Holding Duration In Months" required />
+            <input type="number" id="holdingDurationInMonths" class="form-control" placeholder="Holding Duration In Months" min="0"  />
           </div>
         </div>
         <div class="mt-4">
-          <button class="btn btn-success" type="submit">Get Profit Estimation</button>
+          <button class="btn btn-success" type="submit">Get Profit/Loss Estimation</button>
         </div>
       </form>
 

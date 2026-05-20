@@ -54,21 +54,42 @@ function submitSellingStocksForm(event) {
 
 function displayResult(data) {
   const html = `
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <p><strong>Quantity (Qty):</strong> ${data.quantity}</p>
-		<p><strong>Average Cost (Avg. cost):</strong> ${data.averageCost}</p>
-		<p><strong>Invested Amount = (Avg. cost * Qty):</strong> ${data.investedAmount}</p>
-		<p><strong>Last Trade Price (LTP):</strong> ${data.lastTradePrice}</p>
-        <p><strong>Current Value of all Shares (Cur. val) = (LTP * Qty):</strong> ${data.totalSharesPrice}</p>
-        <p><strong>Charges including GST on selling:</strong> ${data.chargesIncludingGstOnSelling}</p>
-		<p><strong>Profit or Loss = (Cur. val - Invested Amount - Charges) :</strong> ${data.profitOrLoss}</p>
-		<p><strong>Holding Duration In Months:</strong> ${data.holdingDurationInMonths}</p>
-		<p><strong>Tax:</strong> ${data.tax}</p>
-        <hr />
-        <p><strong>Actual Profit or Loss = (Profit or Loss - Tax):</strong> ${data.actualProfit}</p>
-      </div>
-    </div>
+  <div class="card shadow-sm">
+  	    <div class="card-body">
+  	        <table class="table table-bordered table-striped text-center align-middle">
+  	            <thead class="table-dark">
+  	                <tr>
+  	                    <th>Quantity (Qty)</th>
+  	                    <th>Average Cost (Avg. cost)</th>
+  	                    <th>Invested Amount = (Avg. cost * Qty)</th>
+  	                    <th>Last Trade Price (LTP)</th>
+  	                    <th>Current Value of all Shares (Cur. val) = (LTP * Qty)</th>
+  						<th>Charges including GST on selling</th>
+  	                    <th>Profit or Loss = (Cur. val - Invested Amount - Charges)</th>
+  	                    <th>Holding Duration In Months</th>
+  	                    <th>Tax</th>
+  	                    <th>Actual Profit or Loss = (Profit or Loss - Tax)</th>
+  	                </tr>
+  	            </thead>
+  	            <tbody>
+  	                <tr>
+  	                    <td>${data.quantity}</td>
+  	                    <td>${data.averageCost}</td>
+  	                    <td>${data.investedAmount}</td>
+  	                    <td>${data.lastTradePrice}</td>
+  						<td>${data.totalSharesPrice}</td>
+  	                    <td>${data.chargesIncludingGstOnSelling}</td>
+  	                    <td>${data.profitOrLoss}</td>
+  	                    <td>${data.holdingDurationInMonths}</td>
+  						<td>${data.tax}</td>
+  	                    <td>
+  	                        <strong>${data.actualProfit}</strong>
+  	                    </td>
+  	                </tr>
+  	            </tbody>
+  	        </table>
+  	    </div>
+  	</div>
   `;
 
   $('#resultContainer').html(html);

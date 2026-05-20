@@ -57,18 +57,18 @@ function displayResult(data) {
   <div class="card shadow-sm">
   	    <div class="card-body">
   	        <table class="table table-bordered table-striped text-center align-middle">
-  	            <thead class="table-dark">
+  	            <thead style="background-color:#1f2937; color:white;">
   	                <tr>
-  	                    <th>Quantity (Qty)</th>
-  	                    <th>Average Cost (Avg. cost)</th>
-  	                    <th>Invested Amount = (Avg. cost * Qty)</th>
-  	                    <th>Last Trade Price (LTP)</th>
-  	                    <th>Current Value of all Shares (Cur. val) = (LTP * Qty)</th>
-  						<th>Charges including GST on selling</th>
-  	                    <th>Profit or Loss = (Cur. val - Invested Amount - Charges)</th>
-  	                    <th>Holding Duration In Months</th>
-  	                    <th>Tax</th>
-  	                    <th>Actual Profit or Loss = (Profit or Loss - Tax)</th>
+						<th>Quantity<br><small>(Qty)</small></th>
+						<th>Average Cost<br><small>(Avg. cost)</small></th>
+						<th>Invested Amount<br><small>(Avg. cost * Qty)</small></th>
+						<th>Last Trade Price of a Share<br><small>(LTP)</small></th>
+						<th>Current Value of all Shares (Cur. val)<br><small>(LTP * Qty)</small></th>
+	  	                <th>Charges<br><small>Including GST on Selling</small></th>
+						<th>Profit or Loss<br><small>(Cur. val - Invested Amount - Charges)</small></th>
+						<th>Holding Duration<br><small>(In Months)</small></th>
+		                <th>Tax</th>
+						<th>Actual Profit or Loss<br><small>(Profit or Loss - Tax)</small></th>
   	                </tr>
   	            </thead>
   	            <tbody>

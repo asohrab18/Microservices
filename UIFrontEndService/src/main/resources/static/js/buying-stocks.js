@@ -48,13 +48,13 @@ function displayResult(data) {
 	<div class="card shadow-sm">
 	    <div class="card-body">
 	        <table class="table table-bordered table-striped text-center align-middle">
-	            <thead class="table-dark">
+	            <thead style="background-color:#1f2937; color:white;">
 	                <tr>
-	                    <th>Quantity (Qty)</th>
-	                    <th>Last Trade Price (LTP) of a Share</th>
-	                    <th>Price of All Shares = (LTP × Qty)</th>
-	                    <th>Charges Including GST on Buying</th>
-	                    <th>Total Cost on Buying = (Price of All Shares + Charges Including GST)</th>
+						<th>Quantity<br><small>(Qty)</small></th>
+						<th>Last Trade Price of a Share<br><small>(LTP)</small></th>
+	                    <th>Price of All Shares<br><small>(LTP × Qty)</small></th>
+						<th>Charges<br><small>Including GST on Buying</small></th>
+	                    <th>Total Cost on Buying<br><small>(Price of All Shares + Charges Including GST)</small></th>
 	                </tr>
 	            </thead>
 	            <tbody>

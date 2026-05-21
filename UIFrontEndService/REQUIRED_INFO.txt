@@ -1,1 +1,15 @@
 http://localhost:8004/
+http://localhost:8004/home
+_____________________________________________________
+
+http://localhost:8004/home?studentsVisible=false&employeesVisible=false&weightManagementVisible=false&moviesCatalogVisible=false&calculatorVisible=false&buyingStocksVisible=false&sellingStocksVisible=false
+_____________________________________________________
+
+studentsVisible=false
+employeesVisible=false
+weightManagementVisible=false
+moviesCatalogVisible=false
+calculatorVisible=false
+buyingStocksVisible=false
+sellingStocksVisible=false
+_____________________________________________________

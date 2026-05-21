@@ -69,8 +69,7 @@
 							<h5 class="card-title">Employees Department</h5>
 							<p class="card-text text-muted">Track employee details and
 								manage staff.</p>
-							<a href="/html/employees.html"
-								class="btn btn-outline-primary w-100">👨‍💼 Enter</a>
+							<a href="${pageContext.request.contextPath}/html/employees.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">👨‍💼 Enter</a>
 						</div>
 					</div>
 				</div>
@@ -87,8 +86,7 @@
 							<h5 class="card-title">Weight Management</h5>
 							<p class="card-text text-muted">Calculate health goals and
 								fitness progress.</p>
-							<a href="/html/weight-management.html"
-								class="btn btn-outline-primary w-100">🏋️ Enter</a>
+							<a href="${pageContext.request.contextPath}/html/weight-management.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🏋️ Enter</a>
 						</div>
 					</div>
 				</div>
@@ -105,8 +103,7 @@
 							<h5 class="card-title">Movies Catalog</h5>
 							<p class="card-text text-muted">Display movies with ratings
 								given by users.</p>
-							<a href="/html/movies-catalog.html"
-								class="btn btn-outline-primary w-100">🎬 Enter</a>
+							<a href="${pageContext.request.contextPath}/html/movies-catalog.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🎬 Enter</a>
 						</div>
 					</div>
 				</div>
@@ -123,8 +120,7 @@
 							<h5 class="card-title">Calculator</h5>
 							<p class="card-text text-muted">Calculate factorial of a
 								number.</p>
-							<a href="/html/calculator.html"
-								class="btn btn-outline-primary w-100">🧮 Enter</a>
+							<a href="${pageContext.request.contextPath}/html/calculator.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
 					</div>
 				</div>
@@ -139,10 +135,8 @@
 								<i class="bi bi-calculator-fill"></i>
 							</div>
 							<h5 class="card-title">Buying Stocks</h5>
-							<p class="card-text text-muted">Calculate estimated cost when
-								buying stocks.</p>
-							<a href="/html/buying-stocks.html"
-								class="btn btn-outline-primary w-100">🧮 Enter</a>
+							<p class="card-text text-muted">Calculate estimated cost when buying stocks.</p>
+							<a href="${pageContext.request.contextPath}/html/buying-stocks.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
 					</div>
 				</div>
@@ -159,8 +153,7 @@
 							<h5 class="card-title">Selling Stocks</h5>
 							<p class="card-text text-muted">Calculate actual profit when
 								selling stocks.</p>
-							<a href="/html/selling-stocks.html"
-								class="btn btn-outline-primary w-100">🧮 Enter</a>
+							<a href="${pageContext.request.contextPath}/html/selling-stocks.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
 					</div>
 				</div>

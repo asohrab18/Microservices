@@ -1,4 +1,4 @@
-package com.management.weight.model;
+package com.learning.model;
 
 import java.math.BigDecimal;
 

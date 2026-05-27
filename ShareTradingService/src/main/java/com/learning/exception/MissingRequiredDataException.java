@@ -1,4 +1,4 @@
-package com.management.weight.exception;
+package com.learning.exception;
 
 public class MissingRequiredDataException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

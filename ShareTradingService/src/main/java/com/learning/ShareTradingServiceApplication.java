@@ -1,4 +1,4 @@
-package com.management.weight;
+package com.learning;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

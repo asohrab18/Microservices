@@ -1,4 +1,4 @@
-package com.management.weight.controller;
+package com.learning.controller;
 
 import java.math.BigDecimal;
 
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.management.weight.helper.ShareTradingHelper;
-import com.management.weight.model.BuyingShare;
-import com.management.weight.model.SellingShare;
-import com.management.weight.model.Stocks;
-import com.management.weight.utils.ShareTradingContants;
-import com.management.weight.utils.ShareTradingUtils;
+import com.learning.helper.ShareTradingHelper;
+import com.learning.model.BuyingShare;
+import com.learning.model.SellingShare;
+import com.learning.model.Stocks;
+import com.learning.utils.ShareTradingContants;
+import com.learning.utils.ShareTradingUtils;
 
 @RestController
 @RefreshScope

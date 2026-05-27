@@ -1,4 +1,4 @@
-package com.management.weight.utils;
+package com.learning.utils;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package com.management.weight.exception;
+package com.learning.exception;
 
 import java.time.LocalDateTime;
 

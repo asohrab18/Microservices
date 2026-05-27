@@ -1,12 +1,12 @@
-package com.management.weight.helper;
+package com.learning.helper;
 
 import java.math.BigDecimal;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.management.weight.utils.ShareTradingContants;
-import com.management.weight.utils.ShareTradingUtils;
+import com.learning.utils.ShareTradingContants;
+import com.learning.utils.ShareTradingUtils;
 
 public class ShareTradingHelper {
 	private static final Logger LOG = LoggerFactory.getLogger(ShareTradingHelper.class);

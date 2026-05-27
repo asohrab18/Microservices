@@ -34,7 +34,7 @@ public class ShareTradingUtils {
 	public static BigDecimal setScale(BigDecimal value) {
 		return value.setScale(2, RoundingMode.HALF_UP);
 	}
-	
+
 	public static BigDecimal getStt(BigDecimal amount) {
 		return getPercentOfAmount(amount, ShareTradingContants.STT_PERCENT);
 	}
@@ -51,4 +51,20 @@ public class ShareTradingUtils {
 		return getPercentOfAmount(amount, ShareTradingContants.GST_PERCENT);
 	}
 
+	public static BigDecimal getPercentageOfInvestment(BigDecimal investedAmountOfOneStock,
+			BigDecimal totalInvestment) {
+
+		BigDecimal percentageOfInvestment = investedAmountOfOneStock.multiply(ShareTradingContants.HUNDRED)
+				.divide(totalInvestment, 2, RoundingMode.HALF_UP);
+
+		return percentageOfInvestment;
+	}
+
+	/**This main method is for testing purpose only.*/
+	public static void main(String[] args) {
+		BigDecimal investedAmountOfOneStock = getBigDecimal("1999899.99");
+		BigDecimal totalInvestment = getBigDecimal("4824251.52");
+		BigDecimal percentageOfInvestment = getPercentageOfInvestment(investedAmountOfOneStock, totalInvestment);
+		System.out.println("Percentage of Investment: " + percentageOfInvestment);
+	}
 }

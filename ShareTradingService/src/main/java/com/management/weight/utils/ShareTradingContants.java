@@ -25,6 +25,7 @@ public final class ShareTradingContants {
 	public static final String CHARGES_INCLUDING_GST = "Charges including GST on";
 	public static final String COLON = ":";
 	public static final String HOLDING_DURATION = "Holding duration";
+	public static final String INVESTMENT_PERCENTAGE = "investment-percentage";
 	public static final String MONTH = "month(s)";
 	public static final String SELLING = "selling";
 	public static final String SELLING_DETAILS = "selling-details";

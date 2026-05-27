@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.management.weight.helper.ShareTradingHelper;
 import com.management.weight.model.BuyingShare;
 import com.management.weight.model.SellingShare;
+import com.management.weight.model.Stocks;
 import com.management.weight.utils.ShareTradingContants;
 import com.management.weight.utils.ShareTradingUtils;
 
@@ -82,5 +83,18 @@ public class ShareTradingController {
 		share.setActualProfit(actualProfit);
 
 		return new ResponseEntity<>(share, HttpStatus.OK);
+	}
+
+	@PostMapping(ShareTradingContants.INVESTMENT_PERCENTAGE)
+	public ResponseEntity<BigDecimal> getPercentageOfInvestment(@RequestBody Stocks stock) throws Exception {
+
+		BigDecimal investedAmountOfOneStock = stock.getInvestedAmountOfOneStock();
+
+		BigDecimal totalInvestment = stock.getTotalInvestment();
+
+		BigDecimal percentageOfInvestment = ShareTradingUtils.getPercentageOfInvestment(investedAmountOfOneStock,
+				totalInvestment);
+
+		return new ResponseEntity<>(percentageOfInvestment, HttpStatus.OK);
 	}
 }

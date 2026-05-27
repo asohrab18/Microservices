@@ -22,3 +22,15 @@ RAW JSON BODY:
     "holdingDurationInMonths": 3
 }
 ______________________________________________________________________________________________________
+
+POST:
+
+http://localhost:6100/share-trading/investment-percentage
+
+RAW JSON BODY:
+{
+    "investedAmountOfOneStock": 1999899.99,
+    "totalInvestment": 4841782.72
+}
+______________________________________________________________________________________________________
+

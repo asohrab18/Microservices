@@ -86,15 +86,26 @@ public class ShareTradingController {
 	}
 
 	@PostMapping(ShareTradingContants.INVESTMENT_PERCENTAGE)
-	public ResponseEntity<BigDecimal> getPercentageOfInvestment(@RequestBody Stocks stock) throws Exception {
+	public ResponseEntity<String> getPercentageOfInvestment(@RequestBody Stocks stock) throws Exception {
 
 		BigDecimal investedAmountOfOneStock = stock.getInvestedAmountOfOneStock();
 
 		BigDecimal totalInvestment = stock.getTotalInvestment();
 
+		if (investedAmountOfOneStock.compareTo(totalInvestment) > 0) {
+			return new ResponseEntity<>(ShareTradingContants.MSG_INVESTED_AMOUNT_GT_TOTAL_INVESTMENT, HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+		
 		BigDecimal percentageOfInvestment = ShareTradingUtils.getPercentageOfInvestment(investedAmountOfOneStock,
 				totalInvestment);
+		
+		StringBuilder sbd = new StringBuilder(ShareTradingContants.SIXTY);
+		sbd.append(ShareTradingContants.MSG_INVESTED_AMOUNT);
+		sbd.append(percentageOfInvestment);
+		sbd.append(ShareTradingContants.MSG_TOTAL_INVESTMENT_PERCENTAGE);
+		
+		String response = sbd.toString();
 
-		return new ResponseEntity<>(percentageOfInvestment, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 }

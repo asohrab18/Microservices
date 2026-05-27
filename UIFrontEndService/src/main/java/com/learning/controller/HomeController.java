@@ -20,7 +20,8 @@ public class HomeController {
 			@RequestParam(defaultValue = "true") boolean moviesCatalogVisible,
 			@RequestParam(defaultValue = "true") boolean calculatorVisible,
 			@RequestParam(defaultValue = "true") boolean buyingStocksVisible,
-			@RequestParam(defaultValue = "true") boolean sellingStocksVisible) {
+			@RequestParam(defaultValue = "true") boolean sellingStocksVisible,
+			@RequestParam(defaultValue = "true") boolean percentageStockVisible) {
 
 		model.addAttribute("studentsVisible", studentsVisible);
 		model.addAttribute("employeesVisible", employeesVisible);
@@ -29,6 +30,7 @@ public class HomeController {
 		model.addAttribute("calculatorVisible", calculatorVisible);
 		model.addAttribute("buyingStocksVisible", buyingStocksVisible);
 		model.addAttribute("sellingStocksVisible", sellingStocksVisible);
+		model.addAttribute("percentageStockVisible", percentageStockVisible);
 
 		return "home";
 	}

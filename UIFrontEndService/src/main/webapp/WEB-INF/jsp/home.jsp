@@ -158,6 +158,22 @@
 					</div>
 				</div>
 			</c:if>
+			
+			<!-- Percentage of a Stock -->
+			<c:if test="${percentageStockVisible}">
+				<div class="col-md-4">
+					<div class="card shadow-sm h-100">
+						<div class="card-body text-center">
+							<div class="mb-3 fs-1 text-primary">
+								<i class="bi bi-calculator-fill"></i>
+							</div>
+							<h5 class="card-title">Percentage of a Stock</h5>
+							<p class="card-text text-muted">Calculate percentage of a Stock.</p>
+							<a href="${pageContext.request.contextPath}/html/percentage-stock.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
+						</div>
+					</div>
+				</div>
+			</c:if>
 		</div>
 	</div>
 

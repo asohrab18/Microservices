@@ -21,6 +21,10 @@ public class ShareTradingUtils {
 		return value1.subtract(value2);
 	}
 
+	public static BigDecimal divide(BigDecimal value1, BigDecimal value2, int scale) {
+		return value1.divide(value2, scale, RoundingMode.HALF_UP);
+	}
+
 	public static BigDecimal getBigDecimal(String value) {
 		return new BigDecimal(value);
 	}
@@ -32,7 +36,11 @@ public class ShareTradingUtils {
 	}
 
 	public static BigDecimal setScale(BigDecimal value) {
-		return value.setScale(2, RoundingMode.HALF_UP);
+		return value.setScale(ShareTradingContants.TWO, RoundingMode.HALF_UP);
+	}
+
+	public static BigDecimal setScale(BigDecimal value, int scale) {
+		return value.setScale(scale, RoundingMode.HALF_UP);
 	}
 
 	public static BigDecimal getStt(BigDecimal amount) {
@@ -54,17 +62,13 @@ public class ShareTradingUtils {
 	public static BigDecimal getPercentageOfInvestment(BigDecimal investedAmountOfOneStock,
 			BigDecimal totalInvestment) {
 
-		BigDecimal percentageOfInvestment = investedAmountOfOneStock.multiply(ShareTradingContants.HUNDRED)
-				.divide(totalInvestment, 2, RoundingMode.HALF_UP);
+		BigDecimal investedAmount = investedAmountOfOneStock.multiply(ShareTradingContants.HUNDRED);
+		BigDecimal percentageOfInvestment = divide(investedAmount, totalInvestment, ShareTradingContants.TWO);
 
 		return percentageOfInvestment;
 	}
 
-	/**This main method is for testing purpose only.*/
+	/** This main method is for testing purpose only. */
 	public static void main(String[] args) {
-		BigDecimal investedAmountOfOneStock = getBigDecimal("1999899.99");
-		BigDecimal totalInvestment = getBigDecimal("4824251.52");
-		BigDecimal percentageOfInvestment = getPercentageOfInvestment(investedAmountOfOneStock, totalInvestment);
-		System.out.println("Percentage of Investment: " + percentageOfInvestment);
 	}
 }

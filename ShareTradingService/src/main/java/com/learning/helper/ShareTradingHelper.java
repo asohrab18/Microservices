@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.learning.model.Equity;
 import com.learning.utils.ShareTradingContants;
 import com.learning.utils.ShareTradingUtils;
 
@@ -36,7 +37,8 @@ public class ShareTradingHelper {
 
 	/** If holding Duration < 12 Months then Tax = 20% (STCG) */
 	public static BigDecimal calculateTax(BigDecimal profit, int holdingDurationInMonths) {
-		LOG.info(ShareTradingContants.HOLDING_DURATION_COLON + holdingDurationInMonths + ShareTradingContants.SPACE_MONTH);
+		LOG.info(ShareTradingContants.HOLDING_DURATION_COLON + holdingDurationInMonths
+				+ ShareTradingContants.SPACE_MONTH);
 		if (profit.compareTo(BigDecimal.ZERO) <= ShareTradingContants.ZERO) {
 			return BigDecimal.ZERO;
 		}
@@ -51,4 +53,41 @@ public class ShareTradingHelper {
 			return ShareTradingUtils.getPercentOfAmount(profit, ShareTradingContants.LTCG_PERCENT);
 		}
 	}
+
+	public static Equity getDetailsAfterAddingShares(Equity equity) {
+		BigDecimal quantity = equity.getQuantity();
+		BigDecimal averagePrice = equity.getAveragePrice();
+		BigDecimal lastTradePrice = equity.getLastTradePrice();
+		BigDecimal desiredAmountToBeAdded = equity.getDesiredAmountToBeAdded();
+
+		BigDecimal investedAmount = ShareTradingUtils.setScale(ShareTradingUtils.multiply(averagePrice, quantity));
+
+		BigDecimal quantityNew = ShareTradingUtils.divide(desiredAmountToBeAdded, lastTradePrice,
+				ShareTradingContants.ZERO);
+
+		BigDecimal investedAmountNew = ShareTradingUtils
+				.setScale(ShareTradingUtils.multiply(lastTradePrice, quantityNew));
+
+		BigDecimal totalInvestedAmount = ShareTradingUtils
+				.setScale(ShareTradingUtils.add(investedAmount, investedAmountNew));
+
+		BigDecimal totalQuantity = ShareTradingUtils.setScale(ShareTradingUtils.add(quantity, quantityNew),
+				ShareTradingContants.ZERO);
+
+		BigDecimal averagePriceNew = ShareTradingUtils.divide(totalInvestedAmount, totalQuantity,
+				ShareTradingContants.TWO);
+
+		BigDecimal difference = ShareTradingUtils.setScale(ShareTradingUtils.subtract(averagePrice, averagePriceNew));
+
+		equity.setInvestedAmount(investedAmount);
+		equity.setQuantityNew(quantityNew);
+		equity.setInvestedAmountNew(investedAmountNew);
+		equity.setTotalInvestedAmount(totalInvestedAmount);
+		equity.setTotalQuantity(totalQuantity);
+		equity.setAveragePriceNew(averagePriceNew);
+		equity.setPriceDifference(difference);
+
+		return equity;
+	}
+
 }

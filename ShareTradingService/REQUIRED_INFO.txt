@@ -34,3 +34,14 @@ RAW JSON BODY:
 }
 ______________________________________________________________________________________________________
 
+POST:
+
+http://localhost:6100/share-trading/equity-details
+
+RAW JSON BODY:
+{
+    "quantity": 100,
+    "averagePrice": 1089.41,
+    "lastTradePrice": 1234.20,
+    "desiredAmountToBeAdded": 50000
+}

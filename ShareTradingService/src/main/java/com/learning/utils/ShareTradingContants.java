@@ -9,6 +9,7 @@ public final class ShareTradingContants {
 
 	/** Numeric */
 	public static final int ZERO = 0;
+	public static final int TWO = 2;
 	public static final int TWELVE = 12;
 	public static final int SIXTY = 60;
 	public static final BigDecimal EXCHANGE_SEBI_PERCENT = new BigDecimal("0.0035");
@@ -26,6 +27,7 @@ public final class ShareTradingContants {
 	public static final String CHARGES_INCLUDING_GST = "Charges including GST on";
 	public static final String COLON = ":";
 	public static final String DOT = ".";
+	public static final String EQUITY_DETAILS = "equity-details";
 	public static final String HOLDING_DURATION = "Holding duration";
 	public static final String INVESTMENT_PERCENTAGE = "investment-percentage";
 	public static final String MONTH = "month(s)";

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.helper.ShareTradingHelper;
 import com.learning.model.BuyingShare;
+import com.learning.model.Equity;
 import com.learning.model.SellingShare;
 import com.learning.model.Stocks;
 import com.learning.utils.ShareTradingContants;
@@ -93,19 +94,26 @@ public class ShareTradingController {
 		BigDecimal totalInvestment = stock.getTotalInvestment();
 
 		if (investedAmountOfOneStock.compareTo(totalInvestment) > 0) {
-			return new ResponseEntity<>(ShareTradingContants.MSG_INVESTED_AMOUNT_GT_TOTAL_INVESTMENT, HttpStatus.UNPROCESSABLE_ENTITY);
+			return new ResponseEntity<>(ShareTradingContants.MSG_INVESTED_AMOUNT_GT_TOTAL_INVESTMENT,
+					HttpStatus.UNPROCESSABLE_ENTITY);
 		}
-		
+
 		BigDecimal percentageOfInvestment = ShareTradingUtils.getPercentageOfInvestment(investedAmountOfOneStock,
 				totalInvestment);
-		
+
 		StringBuilder sbd = new StringBuilder(ShareTradingContants.SIXTY);
 		sbd.append(ShareTradingContants.MSG_INVESTED_AMOUNT);
 		sbd.append(percentageOfInvestment);
 		sbd.append(ShareTradingContants.MSG_TOTAL_INVESTMENT_PERCENTAGE);
-		
+
 		String response = sbd.toString();
 
 		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@PostMapping(ShareTradingContants.EQUITY_DETAILS)
+	public ResponseEntity<Equity> getDetailsAfterAddingShares(@RequestBody Equity equity) throws Exception {
+		equity = ShareTradingHelper.getDetailsAfterAddingShares(equity);
+		return new ResponseEntity<>(equity, HttpStatus.OK);
 	}
 }

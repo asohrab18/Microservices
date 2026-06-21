@@ -56,11 +56,11 @@ public class ShareTradingHelper {
 
 	public static Equity getDetailsAfterAddingShares(Equity equity) {
 		BigDecimal quantity = equity.getQuantity();
-		BigDecimal averagePrice = equity.getAveragePrice();
+		BigDecimal averageCost = equity.getAverageCost();
 		BigDecimal lastTradePrice = equity.getLastTradePrice();
 		BigDecimal desiredAmountToBeAdded = equity.getDesiredAmountToBeAdded();
 
-		BigDecimal investedAmount = ShareTradingUtils.setScale(ShareTradingUtils.multiply(averagePrice, quantity));
+		BigDecimal investedAmount = ShareTradingUtils.setScale(ShareTradingUtils.multiply(averageCost, quantity));
 
 		BigDecimal quantityNew = ShareTradingUtils.divide(desiredAmountToBeAdded, lastTradePrice,
 				ShareTradingContants.ZERO);
@@ -74,18 +74,18 @@ public class ShareTradingHelper {
 		BigDecimal totalQuantity = ShareTradingUtils.setScale(ShareTradingUtils.add(quantity, quantityNew),
 				ShareTradingContants.ZERO);
 
-		BigDecimal averagePriceNew = ShareTradingUtils.divide(totalInvestedAmount, totalQuantity,
+		BigDecimal averageCostNew = ShareTradingUtils.divide(totalInvestedAmount, totalQuantity,
 				ShareTradingContants.TWO);
 
-		BigDecimal difference = ShareTradingUtils.setScale(ShareTradingUtils.subtract(averagePrice, averagePriceNew));
+		BigDecimal difference = ShareTradingUtils.setScale(ShareTradingUtils.subtract(averageCost, averageCostNew));
 
 		equity.setInvestedAmount(investedAmount);
 		equity.setQuantityNew(quantityNew);
 		equity.setInvestedAmountNew(investedAmountNew);
 		equity.setTotalInvestedAmount(totalInvestedAmount);
 		equity.setTotalQuantity(totalQuantity);
-		equity.setAveragePriceNew(averagePriceNew);
-		equity.setPriceDifference(difference);
+		equity.setAverageCostNew(averageCostNew);
+		equity.setAverageCostDifference(difference);
 
 		return equity;
 	}

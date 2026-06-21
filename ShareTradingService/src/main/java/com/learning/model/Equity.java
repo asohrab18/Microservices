@@ -3,9 +3,8 @@ package com.learning.model;
 import java.math.BigDecimal;
 
 public class Equity {
-
 	private BigDecimal quantity;
-	private BigDecimal averagePrice;
+	private BigDecimal averageCost;
 	private BigDecimal lastTradePrice;
 	private BigDecimal investedAmount;
 	private BigDecimal desiredAmountToBeAdded;
@@ -13,8 +12,8 @@ public class Equity {
 	private BigDecimal investedAmountNew;
 	private BigDecimal totalInvestedAmount;
 	private BigDecimal totalQuantity;
-	private BigDecimal averagePriceNew;
-	private BigDecimal priceDifference;
+	private BigDecimal averageCostNew;
+	private BigDecimal averageCostDifference;
 
 	public BigDecimal getQuantity() {
 		return quantity;
@@ -24,12 +23,12 @@ public class Equity {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getAveragePrice() {
-		return averagePrice;
+	public BigDecimal getAverageCost() {
+		return averageCost;
 	}
 
-	public void setAveragePrice(BigDecimal averagePrice) {
-		this.averagePrice = averagePrice;
+	public void setAverageCost(BigDecimal averageCost) {
+		this.averageCost = averageCost;
 	}
 
 	public BigDecimal getLastTradePrice() {
@@ -88,19 +87,20 @@ public class Equity {
 		this.totalQuantity = totalQuantity;
 	}
 
-	public BigDecimal getAveragePriceNew() {
-		return averagePriceNew;
+	public BigDecimal getAverageCostNew() {
+		return averageCostNew;
 	}
 
-	public void setAveragePriceNew(BigDecimal averagePriceNew) {
-		this.averagePriceNew = averagePriceNew;
+	public void setAverageCostNew(BigDecimal averageCostNew) {
+		this.averageCostNew = averageCostNew;
 	}
 
-	public BigDecimal getPriceDifference() {
-		return priceDifference;
+	public BigDecimal getAverageCostDifference() {
+		return averageCostDifference;
 	}
 
-	public void setPriceDifference(BigDecimal priceDifference) {
-		this.priceDifference = priceDifference;
+	public void setAverageCostDifference(BigDecimal averageCostDifference) {
+		this.averageCostDifference = averageCostDifference;
 	}
+
 }

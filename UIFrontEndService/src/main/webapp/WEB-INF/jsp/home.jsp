@@ -174,6 +174,22 @@
 					</div>
 				</div>
 			</c:if>
+			
+			<!-- Details of Equity -->
+			<c:if test="${detailsOfEquityVisible}">
+				<div class="col-md-4">
+					<div class="card shadow-sm h-100">
+						<div class="card-body text-center">
+							<div class="mb-3 fs-1 text-primary">
+								<i class="bi bi-calculator-fill"></i>
+							</div>
+							<h5 class="card-title">Details of Equity</h5>
+							<p class="card-text text-muted">Get Details of Equity.</p>
+							<a href="${pageContext.request.contextPath}/html/equity-details.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
+						</div>
+					</div>
+				</div>
+			</c:if>
 		</div>
 	</div>
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Equity Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="p-4 bg-light">
+  <div class="container">
+  	<div class="d-flex justify-content-end mb-3">
+      <a id="homeBtn" href="/home" class="btn btn-outline-secondary">⬅️ Home </a>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <h2 class="mb-4 text-primary">Equity Details After Investment</h2>
+
+      <!-- Form -->
+      <form id="equityDetailsForm" onsubmit="submitEquityDetailsForm(event)">
+        <div class="row g-3">
+          <div class="col-md-3">
+            <input type="number" id="quantity" class="form-control" placeholder="Quantity" step="0.01" min="0.01" required />
+          </div>
+          <div class="col-md-3">
+            <input type="number" id="averageCost" class="form-control" placeholder="Average Cost" step="0.01" min="0.01" required />
+          </div>
+          <div class="col-md-3">
+            <input type="number" id="lastTradePrice" class="form-control" placeholder="Last Trade Price" step="0.01" min="0.01" required />
+          </div>
+          <div class="col-md-3">
+            <input type="number" id="desiredAmountToBeAdded" class="form-control" placeholder="Desired Amount To Be Added" step="0.01" min="0.01" required />
+          </div>
+        </div>
+        <div class="mt-4">
+          <button class="btn btn-success" type="submit">Get Equity Details After Investment</button>
+        </div>
+      </form>
+
+      <!-- Result Section -->
+      <div id="resultContainer" class="mt-5"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/equity-details.js"></script>
+  <script src="/js/common.js"></script>
+</body>
+</html>

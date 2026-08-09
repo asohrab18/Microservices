@@ -151,7 +151,7 @@
 								<i class="bi bi-calculator-fill"></i>
 							</div>
 							<h5 class="card-title">Selling Stocks</h5>
-							<p class="card-text text-muted">Calculate actual profit when
+							<p class="card-text text-muted">Calculate profit/loss when
 								selling stocks.</p>
 							<a href="${pageContext.request.contextPath}/html/selling-stocks.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
@@ -167,8 +167,8 @@
 							<div class="mb-3 fs-1 text-primary">
 								<i class="bi bi-calculator-fill"></i>
 							</div>
-							<h5 class="card-title">Percentage of a Stock</h5>
-							<p class="card-text text-muted">Calculate percentage of a Stock.</p>
+							<h5 class="card-title">A Stock % in Total Investment</h5>
+							<p class="card-text text-muted">Calculate percentage of a Stock in Total Investment.</p>
 							<a href="${pageContext.request.contextPath}/html/percentage-stock.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
 					</div>
@@ -183,8 +183,8 @@
 							<div class="mb-3 fs-1 text-primary">
 								<i class="bi bi-calculator-fill"></i>
 							</div>
-							<h5 class="card-title">Details of Equity</h5>
-							<p class="card-text text-muted">Get Details of Equity.</p>
+							<h5 class="card-title">Details of Existing Stock</h5>
+							<p class="card-text text-muted">Get details of Existing Stock after adding some amount.</p>
 							<a href="${pageContext.request.contextPath}/html/equity-details.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
 					</div>

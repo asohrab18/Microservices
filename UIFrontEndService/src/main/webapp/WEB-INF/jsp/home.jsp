@@ -134,8 +134,8 @@
 							<div class="mb-3 fs-1 text-primary">
 								<i class="bi bi-calculator-fill"></i>
 							</div>
-							<h5 class="card-title">Buying Stocks</h5>
-							<p class="card-text text-muted">Calculate estimated cost when buying stocks.</p>
+							<h5 class="card-title">Buying a new Stock</h5>
+							<p class="card-text text-muted">Calculate estimated cost when buying a new stock.</p>
 							<a href="${pageContext.request.contextPath}/html/buying-stocks.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
 					</div>
@@ -150,9 +150,9 @@
 							<div class="mb-3 fs-1 text-primary">
 								<i class="bi bi-calculator-fill"></i>
 							</div>
-							<h5 class="card-title">Selling Stocks</h5>
+							<h5 class="card-title">Selling a Stock</h5>
 							<p class="card-text text-muted">Calculate profit/loss when
-								selling stocks.</p>
+								selling an existing stock.</p>
 							<a href="${pageContext.request.contextPath}/html/selling-stocks.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
 					</div>
@@ -183,7 +183,7 @@
 							<div class="mb-3 fs-1 text-primary">
 								<i class="bi bi-calculator-fill"></i>
 							</div>
-							<h5 class="card-title">Details of Existing Stock</h5>
+							<h5 class="card-title">Existing Stock after Adding Amount</h5>
 							<p class="card-text text-muted">Get details of Existing Stock after adding some amount.</p>
 							<a href="${pageContext.request.contextPath}/html/equity-details.html${empty pageContext.request.queryString ? '' : '?'}${pageContext.request.queryString}" class="btn btn-outline-primary w-100">🧮 Enter</a>
 						</div>
